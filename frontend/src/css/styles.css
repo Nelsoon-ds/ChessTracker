@@ -7,29 +7,11 @@ body {
     display: none !important;
 }
 
-button {
-    color: red;
-}
 
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2;}
-
-tr:hover {background-color: #ddd;}
-
-th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
+/* Center and "Zoom In" Content */
+.centered-content {
+    max-width: 900px;  /* Restricts wide expansion */
+    margin: 0 auto;    /* Centers horizontally */
+    font-size: 1.1rem; /* Creates a slight zoom/larger look */
+    padding: 2rem 1rem;
 }
