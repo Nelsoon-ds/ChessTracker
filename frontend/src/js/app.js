@@ -1,3 +1,18 @@
+// Chesstracking SPA
+// Vars, functions, dom events
+
+
+
+let playerArray = [];
+let top100boardState = false;
+const top100blitz = document.getElementById('top100-blitz');
+const positionchangeview = document.getElementById('position-change-view');
+const playercomparison = document.getElementById('player-comparison')
+const views = ['#top100-blitz', '#player-comparison', '#position-change-view'];
+
+
+// Functions
+
 function showTop100() {
     if (top100boardState === false) {
         renderTable(playerArray)
@@ -11,17 +26,10 @@ function showTop100() {
 
 }
 
-let top100boardState = false;
-const top100blitz = document.getElementById('top100-blitz');
-const positionchangeview = document.getElementById('position-change-view');
-const playercomparison = document.getElementById('player-comparison')
-const views = ['#top100-blitz', '#player-comparison', '#position-change-view'];
 
-
-
-
-
-
+function addRankingNr() {
+    playerArray.sort((a, b) => a.value - b.value);
+}
 
 function render(location) {
         if (views.includes(location)) {
@@ -45,9 +53,6 @@ function render(location) {
         }
 }
 
-
-let playerArray = [];
-
 async function retrieveTop100() {
     const url = "/get/top100";
     try {
@@ -63,6 +68,7 @@ async function retrieveTop100() {
 
 
 function renderTable(items) {
+    let playerRank = 1; // Adding a player rank manually here. Hack
     const board = document.getElementById('top100-board');
     board.classList.remove('hidden');
     const tableBody = document.getElementById('table-body')
@@ -70,14 +76,18 @@ function renderTable(items) {
     items.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
+        <td>${playerRank}</td>
         <td>${item.username}</td>
         <td>${item.rating}</td>
         `;
         tableBody.appendChild(row);
+        playerRank++;
     })
 }
 
+// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
+    render("#top100-blitz")
     window.addEventListener("hashchange", () => {
         render(location.hash)
     });
