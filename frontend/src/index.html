@@ -5,27 +5,80 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <meta name="description" content="">
 </head>
-
 <body>
 
-<section id="main-section">
+<header>
+    <h1>Lichess Player Viewer</h1>
+</header>
+<nav>
+<ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About me</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+</nav>
 
+<aside>
+    <li><a href="#top100-blitz">Top 100 Blitz</a></li>
+    <li><a href="#position-change-view">View position changes in the latest snapshot</a></li>
+    <li><a href="#player-comparison">Player comparisons</a></li>
+</aside>
+
+<section id="top100-blitz">
     <h1>Lichess User Ranking</h1>
     <p>View user details from Lichess directly on the page.</p>
-
-    <button id="btn-view-top100">
+    <div class="container">
+        <div class="container-header">
+            <p>I am the container header</p>
+        </div>
+        <div class="container-body">
+            <p>I will contain all the main content</p>
+        </div>
+    </div>
+    <button id="btn-view-top100" onclick="showTop100()">
         View top 100
     </button>
 
+    <table id="top100-board">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+    <tbody id="table-body">
+
+    </tbody>
+    </table>
 </section>
 
 
-<!-- Add your site or application content here -->
-<p>Hello world! This is HTML5 Boilerplate.</p>
+<section id="position-change-view">
+    <h1>Position Changes</h1>
+    <div class="container">
+        <div class="container-header">
+            <p>I am the container header</p>
+        </div>
+        <div class="container-body">
+            <p>I will contain all the main content</p>
+        </div>
+    </div>
+</section>
 
+<section id="player-comparison">
+    <h1>Player comparison</h1>
+    <div class="container">
+        <div class="container-header">
+            <p>I am the container header</p>
+        </div>
+        <div class="container-body">
+            <p>I will contain all the main content</p>
+        </div>
+    </div>
+</section>
 </body>
 <script src="./js/app.js" defer></script>
 </html>
