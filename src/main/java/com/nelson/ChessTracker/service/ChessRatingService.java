@@ -51,7 +51,7 @@ public class ChessRatingService {
         for (LichessUser dto : players) {
             Player player;
             LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
-            Optional<Player> existing = playerRepository.findByUserName(dto.username());
+            Optional<Player> existing = Optional.ofNullable(playerRepository.findByUserName(dto.username()));
 
             if (existing.isPresent()){
                 player = existing.get();

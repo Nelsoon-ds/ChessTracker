@@ -1,6 +1,6 @@
 // Chesstracking SPA
+import {retrievePlayer} from "./player-comparison.js";
 // Vars, functions, dom events
-
 
 
 let playerArray = [];
@@ -32,29 +32,29 @@ function addRankingNr() {
 }
 
 function render(location) {
-        if (views.includes(location)) {
-            switch (location) {
-                case "#top100-blitz":
-                    top100blitz.classList.remove('hidden');
-                    playercomparison.classList.add('hidden');
-                    positionchangeview.classList.add('hidden');
-                    break;
-                case "#position-change-view":
-                    positionchangeview.classList.remove('hidden');
-                    top100blitz.classList.add('hidden');
-                    playercomparison.classList.add('hidden');
-                    break;
-                case "#player-comparison":
-                    playercomparison.classList.remove('hidden');
-                    top100blitz.classList.add('hidden');
-                    positionchangeview.classList.add('hidden');
-                    break;
-            }
+    if (views.includes(location)) {
+        switch (location) {
+            case "#top100-blitz":
+                top100blitz.classList.remove('hidden');
+                playercomparison.classList.add('hidden');
+                positionchangeview.classList.add('hidden');
+                break;
+            case "#position-change-view":
+                positionchangeview.classList.remove('hidden');
+                top100blitz.classList.add('hidden');
+                playercomparison.classList.add('hidden');
+                break;
+            case "#player-comparison":
+                playercomparison.classList.remove('hidden');
+                top100blitz.classList.add('hidden');
+                positionchangeview.classList.add('hidden');
+                break;
         }
+    }
 }
 
 async function retrieveTop100() {
-    const url = "/get/top100";
+    const url = "/api/top100";
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -65,7 +65,6 @@ async function retrieveTop100() {
         console.log(err.message);
     }
 }
-
 
 function renderTable(items) {
     let playerRank = 1; // Adding a player rank manually here. Hack
@@ -94,4 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
     retrieveTop100().then(showTop100);
 })
 
-
+console.log("im working lol");
+const player = "cutemouse83"
+console.log(retrievePlayer(player));

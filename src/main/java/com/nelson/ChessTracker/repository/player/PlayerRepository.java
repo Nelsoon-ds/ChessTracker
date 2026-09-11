@@ -10,5 +10,5 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
     Optional<RatingSnapshot> findTopByPlayerIdOrderByTimestampDesc(Long playerId);
 
-    Optional<Player> findByUserName(String username);
+    Player findByUserName(String userName);
 }
